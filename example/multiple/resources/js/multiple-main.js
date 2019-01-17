@@ -4,9 +4,11 @@
     init() {
       this.initData();
       this.onLoadMore();
+      this.onLoadMore2();
     },
     initData() {
       this.xhrGetList(1);
+      this.xhrGetList2(1);
     },
     list: [],
     isXhrGetListComplete: true,
@@ -132,11 +134,12 @@
       });
     },
     renderList2(list) {
-      const oList = document.querySelector('.list_bd');
+      const $List = $('.list-wrap2 .list_bd');
+      const oList = $List[0];
       if (list.length === 0) return;
       let listStr = '';
 
-      this.list = list;
+      this.list2 = list;
       list.forEach((item) => {
         const title = item.title;
         const subTitle = item.subTitle;
@@ -154,18 +157,19 @@
     },
     onLoadMore2() {
       const self = this;
-      const oLoadMore = doc.querySelector('.loadmore_btn');
+      const $LoadMore = $('.list-wrap2 .loadmore_btn');
+      const oLoadMore = $LoadMore[0];
       
       oLoadMore.addEventListener('click', () => {
         isCanHandleLoadmore = this.isXhrGetListComplete;
         if (!isCanHandleLoadmore) return;
         
-        let pageIndex = loadMore.pageIndex;
-        const isCanLoadMore = loadMore.isCanLoadMore(pageIndex);
+        let pageIndex = loadMore2.pageIndex;
+        const isCanLoadMore = loadMore2.isCanLoadMore(pageIndex);
         
         if (isCanLoadMore) {
           pageIndex++;
-          self.xhrGetList(pageIndex);
+          self.xhrGetList2(pageIndex);
         } else {
           console.log('不能加载更多');
         }
@@ -173,12 +177,15 @@
       });
     },
     hideLoadMore2() {
-      const oLoadMore = doc.querySelector('.loadmore_btn');
+      const $LoadMore = $('.list-wrap2 .loadmore_btn');
+      const oLoadMore = $LoadMore[0];
       oLoadMore.style.display = 'none';
     }
   }
 
   const loadMore = new win.LoadMore({pageSize: PAGE_SIZE, pageIndex: 1});
+
+  const loadMore2 = new win.LoadMore({pageSize: PAGE_SIZE, pageIndex: 1});
   
   /** 
    * 接口请求.

@@ -6,13 +6,13 @@
 // @example
 // ```js
 // step1: 初始化
-// loadMore.init({pageSize: 5, pageIndex: 1});
+// const loadMore = new LoadMore({pageSize: 5, pageIndex: 1});
 // 
 // step2: 检测是否可以加载更多
-// const pageIndex = loadMore.pageIndex;
-// const isCanLoadMore = loadMore.isCanLoadMore(pageIndex);
+// const isCanLoadMore = loadMore.isCanLoadMore();
 // if (isCanLoadMore) {
 //   // => 可以加载更多, 执行加载更多接口
+//   const pageIndex = loadMore.pageIndex; 
 //   pageIndex++;
 // } else {
 //   // => 不能加载更多 

@@ -27,7 +27,7 @@
 // const isCanLoadMore = loadMore.isCanLoadMore();
 // ```
 //===================================
-const moduleName = 'LoadMore';
+const moduleName = 'loadMore';
 
 // @see https://github.com/umdjs/umd/blob/master/templates/commonjsStrictGlobal.js
 (function (root, factory) {
@@ -50,54 +50,49 @@ const moduleName = 'LoadMore';
   const INIT_PAGE_INDEX = 1;
   const INIT_PAGE_SIZE = 5;
 
-  class LoadMore {
-    constructor(config = {pageSize: INIT_PAGE_SIZE, pageIndex: INIT_PAGE_INDEX}) {
-      this.init(config);
-
-      /** 列表总长度 */
-      this._pageCount = 0;
-      /** 当前请求的页码 */
-      this._pageIndex = INIT_PAGE_INDEX;
-      /** 每页最多显示的数量 */
-      this._pageSize = INIT_PAGE_SIZE;
-    }
-    
-    init(config) {
+  const loadMore = {
+    /** 列表总长度 */
+    _pageCount: 0,
+    /** 当前请求的页码 */
+    _pageIndex: INIT_PAGE_INDEX,
+    /** 每页最多显示的数量 */
+    _pageSize: INIT_PAGE_SIZE,
+    init(config = {pageSize: INIT_PAGE_SIZE, pageIndex: INIT_PAGE_INDEX}) {
       this.initData(config);
-    }
+    },
     initData(config) {
       const { pageSize, pageIndex } = config;
       this._pageSize = Number(pageSize);
       this._pageIndex = Number(pageIndex);
-    }
+    },
     get pageIndex() {
       return this._pageIndex;
-    }
+    },
     get pageCount() {
       return this._pageCount;
-    }
+    },
     set pageCount(value) {
       return this._pageCount = value;
-    }
+    },
     get pageIndex() {
       return this._pageIndex;
-    }
+    },
     set pageIndex(value) {
       this._pageIndex = value;
-    }
+    },
     get pageSize() {
       return this._pageSize;
-    }
+    },
     set pageSize(value) {
       if (Number(value) <= 0) {
         throw Error('loadmore pageSize value is unexpected.');
         return;
       }
       this._pageSize = value;
-    }
+    },
     get maxPageIndex() {
       return Math.ceil(this._pageCount / this._pageSize);
-    }
+    },
     isCanLoadMore() {
       if (this._pageIndex >= INIT_PAGE_INDEX) {
         if (this._pageIndex < this.maxPageIndex) {
@@ -110,5 +105,5 @@ const moduleName = 'LoadMore';
       }
     }
   }
-  return LoadMore;
+  return loadMore;
 }));

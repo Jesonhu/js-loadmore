@@ -1,0 +1,24 @@
+.list-wrap {
+  width: 500px;
+  height:478px;
+  overflow: hidden;
+  margin:0 auto;
+  margin-top:30px;
+  padding: 10px;
+  padding-bottom: 30px;
+  background-color:#eee;
+}
+.list_bd {
+  height:370px;
+  overflow-y:scroll;
+}
+.item_bd {
+  background-color:#ddd;
+  margin-bottom: 10px;
+  height: 64px;
+  box-sizing: border-box;
+}
+.loadmore {
+  margin-top: 30px;
+  text-align: center;
+}

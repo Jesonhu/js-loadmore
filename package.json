@@ -1,0 +1,17 @@
+{
+  "name": "loadmore",
+  "version": "1.0.0",
+  "description": "加载更多工具",
+  "main": "loadMore.js",
+  "directories": {
+    "example": "example"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "loadMore"
+  ],
+  "author": "Jesonhu",
+  "license": "ISC"
+}

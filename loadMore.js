@@ -70,9 +70,6 @@ const moduleName = 'LoadMore';
       this._pageSize = Number(pageSize);
       this._pageIndex = Number(pageIndex);
     }
-    get pageIndex() {
-      return this._pageIndex;
-    }
     get pageCount() {
       return this._pageCount;
     }

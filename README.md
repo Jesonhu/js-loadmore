@@ -59,6 +59,9 @@ if (!isCanLoadMore) {
 }
 ```
 
+## 在线 Demo
++ [一页单个加载更多](https://weixin.easysolves.com/sites/loadmore/single/)
++ [一页多个加载更多](https://weixin.easysolves.com/sites/loadmore/multiple/)
 
 ## 属性(property)
 |名称|类型|说明|默认值|可选值|

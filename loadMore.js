@@ -53,13 +53,6 @@ const moduleName = 'LoadMore';
   class LoadMore {
     constructor(config = {pageSize: INIT_PAGE_SIZE, pageIndex: INIT_PAGE_INDEX}) {
       this.init(config);
-
-      /** 列表总长度 */
-      this._pageCount = 0;
-      /** 当前请求的页码 */
-      this._pageIndex = INIT_PAGE_INDEX;
-      /** 每页最多显示的数量 */
-      this._pageSize = INIT_PAGE_SIZE;
     }
     
     init(config) {
@@ -67,7 +60,11 @@ const moduleName = 'LoadMore';
     }
     initData(config) {
       const { pageSize, pageIndex } = config;
+      /** 列表总长度 */
+      this._pageCount = 0;
+      /** 每页最多显示的数量 */
       this._pageSize = Number(pageSize);
+      /** 当前请求的页码 */
       this._pageIndex = Number(pageIndex);
     }
     get pageCount() {
